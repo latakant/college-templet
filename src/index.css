@@ -1,0 +1,245 @@
+:root{
+  --bg:#efefef;
+  --muted:#f7f7f7;
+  --accent-blue:#0b6fb8;
+  --accent-red:#b91c1c;
+  --text:#222;
+  --left-width:260px;
+  --gutter:24px;
+  --container-max:1180px;
+  --card-bg: #fff;
+  --card-border:#dbdbdb;
+  --shadow: 0 2px 6px rgba(0,0,0,0.06);
+  --radius:4px;
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background:linear-gradient(#f5f5f5,#efefef);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+
+.page-root{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* HEADER */
+.site-header{
+  width:100%;
+  background:#fff;
+  border-bottom:4px solid var(--accent-blue);
+  box-shadow: none;
+  position:sticky;
+  top:0;
+  z-index:30;
+}
+
+.header-inner{
+  max-width:var(--container-max);
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 18px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.brand-logo{
+  width:120px;
+  height:58px;
+  object-fit:contain;
+  border-radius:6px;
+  background:#fff;
+  border:1px solid #eee;
+}
+
+.brand-text h1{
+  margin:0;
+  font-size:20px;
+  color:var(--accent-blue);
+  line-height:1;
+}
+
+.brand-text .est{
+  font-size:12px;
+  color:#b05c00;
+}
+
+/* top links small */
+.top-links a{
+  color:#a33c00;
+  text-decoration:none;
+  margin-left:12px;
+  font-size:13px;
+}
+
+/* GRID LAYOUT */
+.main-grid{
+  display:grid;
+  grid-template-columns: var(--left-width) 1fr 220px;
+  gap:var(--gutter);
+  width:100%;
+  max-width:var(--container-max);
+  margin:18px auto;
+  padding:0 12px 60px;
+}
+
+/* Left sidebar */
+.sidebar{
+  background:transparent;
+  align-self:start;
+  position:relative;
+}
+
+/* small screen toggle */
+.sidebar-toggle{
+  display:none;
+  background:var(--accent-blue);
+  color:#fff;
+  width:100%;
+  padding:10px 12px;
+  border:none;
+  border-radius:4px;
+  font-weight:600;
+}
+
+/* blocks */
+.menu-block{
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  margin-bottom:14px;
+  box-shadow:var(--shadow);
+  border-radius:4px;
+}
+
+.menu-title{
+  background:linear-gradient(90deg,#fff,#fff);
+  color:var(--accent-blue);
+  padding:10px 12px;
+  font-weight:700;
+  border-bottom:1px solid #eee;
+  font-size:14px;
+}
+
+.menu-list{
+  list-style:none;
+  margin:0;
+  padding:8px 0;
+}
+
+.menu-list li{
+  padding:6px 12px;
+  border-top:1px dashed #f1f1f1;
+  font-size:13px;
+}
+
+.menu-list li a{
+  color:#444;
+  text-decoration:none;
+}
+
+/* center content */
+.center-col{
+  padding:0 12px;
+  min-height:400px;
+}
+
+.content-wrap{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+/* big blue centered title like screenshot */
+.page-title{
+  text-align:center;
+  color:#163c70;
+  background:transparent;
+  padding:10px 0;
+  margin:0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-size:22px;
+  border:1px solid #e6e6e6;
+  border-radius:6px;
+}
+
+/* main white card */
+.card{
+  background:var(--card-bg);
+  border:1px solid #ddd;
+  padding:0;
+  border-radius:6px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+/* red header ribbon */
+.card-header{
+  padding:18px 18px 6px;
+  background:linear-gradient(#fff,#fff);
+}
+
+.red-pill{
+  display:inline-block;
+  background:var(--accent-red);
+  color:#fff;
+  padding:8px 12px;
+  font-weight:700;
+  border-radius:4px;
+  font-size:15px;
+  text-transform:uppercase;
+  letter-spacing:0.6px;
+}
+
+/* body with margins */
+.card-body{
+  padding:18px 22px 28px;
+  color:#222;
+  line-height:1.55;
+  font-size:14px;
+}
+
+/* right gutter (empty) */
+.right-col{
+  min-width:160px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1080px){
+  .main-grid{ grid-template-columns: 220px 1fr; }
+  .right-col{ display:none; }
+}
+
+@media (max-width: 820px){
+  .main-grid{ grid-template-columns: 1fr; padding:0 12px 80px; }
+  .left-col{ order:0; width:100%; }
+  .center-col{ order:1; }
+  .sidebar-toggle{ display:block; margin-bottom:10px; }
+
+  /* hide content sections until open */
+  .sidebar-sections{
+    display:none;
+  }
+  .sidebar.open .sidebar-sections{
+    display:block;
+  }
+
+  .brand-logo{ width:56px; height:56px;}
+  .brand-text h1{ font-size:16px; }
+  .page-title{ font-size:18px; padding:8px 6px; }
+  .card-body{ font-size:15px; }
+}
+
+/* small visual polish */
+.menu-list li:first-child{ border-top:none; }
