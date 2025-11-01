@@ -56,8 +56,8 @@ body{
 }
 
 .brand-logo{
-  width:120px;
-  height:58px;
+  width:30vh;
+  height:8vh;
   object-fit:contain;
   border-radius:6px;
   background:#fff;
@@ -87,7 +87,7 @@ body{
 /* GRID LAYOUT */
 .main-grid{
   display:grid;
-  grid-template-columns: var(--left-width) 1fr 220px;
+  grid-template-columns: var(--left-width) 1fr;
   gap:var(--gutter);
   width:100%;
   max-width:var(--container-max);
@@ -156,6 +156,7 @@ body{
 }
 
 .content-wrap{
+  width: 100%;
   display:flex;
   flex-direction:column;
   gap:18px;
@@ -176,6 +177,7 @@ body{
 
 /* main white card */
 .card{
+  width: 100%;
   background:var(--card-bg);
   border:1px solid #ddd;
   padding:0;
@@ -191,6 +193,7 @@ body{
 }
 
 .red-pill{
+  width: 100%;
   display:inline-block;
   background:var(--accent-red);
   color:#fff;
